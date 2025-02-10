@@ -1,88 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Be My Valentine? 💖</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
-      background-attachment: fixed;
-      color: white;
-      padding: 50px;
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    h1 {
-      font-size: 2em;
-    }
-    .message {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-    .buttons {
-      margin-top: 20px;
-      position: relative;
-    }
-    button {
-      font-size: 1.2em;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .yes {
-      background-color: #ff4d79;
-      color: white;
-    }
-    .no {
-      background-color: #ffffff;
-      color: #ff4d79;
-      position: absolute;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Request</title>
+    <style>
+        body { 
+            text-align: center; 
+            font-family: Arial, sans-serif; 
+            background-color: #f7e5d9;
+        }
+        h1 { color: #d91e36; font-size: 2em; }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #d91e36;
+            color: white;
+        }
+        .yes:hover {
+            background-color: #a9152b;
+        }
+        .no {
+            background-color: #bbb;
+            color: black;
+            position: absolute;
+        }
+    </style>
+    <script>
+        function sayYes() {
+            alert("I knew it! ❤ See you on Valentine's! 😘");
+        }
+        function moveNo() {
+            const btn = document.getElementById("noBtn");
+            btn.style.position = "absolute";
+            btn.style.top = Math.random() * window.innerHeight + "px";
+            btn.style.left = Math.random() * window.innerWidth + "px";
+        }
+    </script>
 </head>
 <body>
-  <div class="container">
-    <h1>💌 Hey baby, 💌</h1>
-    <p class="message">
-      I was going to write you a long love letter, but then I thought... why not make it a whole webpage instead? 💻💖  
-      <br><br>
-      So here we are—just you, me, and a very important question...
-    </p>
-    <h2>Will you be my Valentine? 🌹💘</h2>
+    <h1>💌 You've been invited to a Valentine's mission 💌</h1>
+    <p>One question remains...</p>
+    <h2>Will you be my Valentine? ❤</h2>
     <div class="buttons">
-      <button class="yes" onclick="alert('Yay! Best decision ever! ❤️')">Yes</button>
-      <button class="no" onmouseover="moveButton()" aria-label="No, I won't be your Valentine">No</button>
+        <button class="yes" onclick="sayYes()">Yes</button>
+        <button class="no" id="noBtn" onmouseover="moveNo()">No</button>
     </div>
-    <p>Clicking "Yes" is highly recommended. Clicking "No" would be crazy but damn😂. Anyway, good luck trying to do that😭</p>
-    <p>With love,</p>
-    <p class="signature">KD ❤️</p>
-  </div>
-
-  <script>
-    function moveButton() {
-      const noButton = document.querySelector(".no");
-      const buttonWidth = noButton.offsetWidth;
-      const buttonHeight = noButton.offsetHeight;
-      const maxX = window.innerWidth - buttonWidth;
-      const maxY = window.innerHeight - buttonHeight;
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
-      noButton.style.left = `${x}px`;
-      noButton.style.top = `${y}px`;
-    }
-  </script>
 </body>
 </html>
