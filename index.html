@@ -1,33 +1,109 @@
-function celebrate() {
-  document.body.innerHTML = `
-    <div style="text-align: center; padding: 50px;">
-      <h1>YAY! 🥰</h1>
-      <p>You just made me the happiest person! Can't wait to celebrate with you. ❤️</p>
-      <img 
-        src="https://i.imgur.com/4sc7iH2.jpeg" 
-        alt="A romantic moment of us together" 
-        style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease-in-out;"
-        onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Our+Special+Moment';"
-      >
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine? 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      background-attachment: fixed;
+      color: white;
+      padding: 50px;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      font-size: 2em;
+    }
+    .message {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .yes {
+      background-color: #ff4d79;
+      color: white;
+      transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    }
+    .yes:hover {
+      transform: scale(1.1);
+      background-color: #ff3366;
+    }
+    .no {
+      background-color: #ffffff;
+      color: #ff4d79;
+      position: absolute;
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💌 Hey baby, 💌</h1>
+    <p class="message">
+      I was going to write you a long love letter, but then I thought... why not make it a whole webpage instead? 💻💖  
       <br><br>
-      <img 
-        src="https://media.giphy.com/media/3oz8xwkMgHWr0p77va/giphy.gif" 
-        alt="Happy couple dancing" 
-        style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease-in-out;"
-      >
-      <p><a href="#" onclick="location.reload()" aria-label="Go back to the previous page">Go back</a></p>
+      So here we are—just you, me, and a very important question...
+    </p>
+    <h2>Will you be my Valentine? 🌹💘</h2>
+    <p><em>(Remember when I said girls love the opportunity to say no? Well, here’s yours... or at least, it was! 😏😂)</em></p>
+    <div class="buttons">
+      <button class="yes" onclick="celebrate()" aria-label="Yes, I'll be your Valentine">Yes</button>
+      <button class="no" onmouseover="moveButton()" aria-label="No, I won't be your Valentine">No</button>
     </div>
-  `;
-  document.querySelector("h1").focus(); // Set focus for accessibility
+    <p>Clicking "Yes" is highly recommended. Clicking "No" would be crazy but damn😂. Anyway, good luck trying to do that😭</p>
+    <p>With love,</p>
+    <p class="signature">KD ❤️</p>
+  </div>
 
-  // Add hover effects to images
-  const images = document.querySelectorAll("img");
-  images.forEach(img => {
-    img.addEventListener("mouseenter", () => {
-      img.style.transform = "scale(1.05)";
-    });
-    img.addEventListener("mouseleave", () => {
-      img.style.transform = "scale(1)";
-    });
-  });
-}
+  <script>
+    function moveButton() {
+      const noButton = document.querySelector(".no");
+      const buttonWidth = noButton.offsetWidth;
+      const buttonHeight = noButton.offsetHeight;
+      const maxX = window.innerWidth - buttonWidth - 20; // Ensure it stays visible
+      const maxY = window.innerHeight - buttonHeight - 20;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+      noButton.style.left = `${x}px`;
+      noButton.style.top = `${y}px`;
+    }
+
+    function celebrate() {
+      document.body.innerHTML = `
+        <div style="text-align: center; padding: 50px;">
+          <h1>YAY! 🥰</h1>
+          <p>You just made me the happiest person! Can't wait to celebrate with you. ❤️</p>
+          <img src="https://media.giphy.com/media/3oz8xwkMgHWr0p77va/giphy.gif" alt="Happy couple dancing" width="300" style="max-width: 100%; height: auto;">
+          <p><a href="#" onclick="location.reload()">Go back</a></p>
+        </div>
+      `;
+      document.querySelector("h1").focus(); // Set focus for accessibility
+    }
+  </script>
+</body>
+</html>
