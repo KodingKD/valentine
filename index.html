@@ -1,0 +1,33 @@
+function celebrate() {
+  document.body.innerHTML = `
+    <div style="text-align: center; padding: 50px;">
+      <h1>YAY! 🥰</h1>
+      <p>You just made me the happiest person! Can't wait to celebrate with you. ❤️</p>
+      <img 
+        src="https://drive.google.com/uc?export=view&id=15hsgIl18wEMiikM53mGvSHroqSjC-WK0" 
+        alt="A romantic moment of us together" 
+        style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease-in-out;"
+        onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200?text=Our+Special+Moment';"
+      >
+      <br><br>
+      <img 
+        src="https://media.giphy.com/media/3oz8xwkMgHWr0p77va/giphy.gif" 
+        alt="Happy couple dancing" 
+        style="max-width: 80%; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease-in-out;"
+      >
+      <p><a href="#" onclick="location.reload()" aria-label="Go back to the previous page">Go back</a></p>
+    </div>
+  `;
+  document.querySelector("h1").focus(); // Set focus for accessibility
+
+  // Add hover effects to images
+  const images = document.querySelectorAll("img");
+  images.forEach(img => {
+    img.addEventListener("mouseenter", () => {
+      img.style.transform = "scale(1.05)";
+    });
+    img.addEventListener("mouseleave", () => {
+      img.style.transform = "scale(1)";
+    });
+  });
+}
